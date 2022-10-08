@@ -1,5 +1,5 @@
 <div class="footer">
-    THIS IS FOOTER
+    Copyright &copy COMPANY &nbsp; Technical support: (514) 555-1234
 </div>
 </body>
 </html>
