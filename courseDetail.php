@@ -43,8 +43,9 @@
                 }
             ?>
         </table>
-        <br />Your search yielded <strong>
-		      <?php print( "$counter" ) ?> results.<br /><br /></strong>
+
+        <br />Your search yielded 
+        <strong> <?php print( "$counter" ) ?> results.<br /><br /></strong>
 
     </body>
 </html>
