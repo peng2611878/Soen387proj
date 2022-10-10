@@ -3,8 +3,7 @@
     <title>user select courses Page2</title>
     <body>
 
-        <h1>Welcome</h1>
-        <?php 
+        <h1>Welcome <?php 
             include_once 'connection.php';
             extract( $_POST);
 
@@ -15,7 +14,7 @@
             if ($result->num_rows > 0) {
                 // output data of each row
                 while($row = $result->fetch_assoc()) {
-                  echo "id: " . $sID . "  Name: " . $row["fName"]. " " . $row["lName"]. "<br>";
+                  echo  $row["fName"]. " " . $row["lName"]. "<br>";
                 }
               } else {
                 echo "0 results";
@@ -24,13 +23,19 @@
         ?>
 
 
-        
-        <form method = "post" action = "courseDetail.php">
+        <form method post = "post" action = "coursesRegistered.php">
+              <div>
+                <h2>Click here to view your registered courses</h2>
+                <input type = "submit" value = "view">
+              </div>
+        </form>
+
+        <form method = "post" action = "courseDatabase.php">
         <div>    
-            <h2>Select courses
+            <h2>Select Semester
             <select name = "selectSemester">
-                <option> fall 2022 </option>
-                <option> winter 2023 </option>
+                <option> 2022Fall </option>
+                <option> 2023winter </option>
             </select>
             </h2>
             <input type = "submit" value = "cheak detail">
