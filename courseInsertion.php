@@ -8,7 +8,7 @@
     extract($_POST);
 
     $sql = "INSERT INTO course (courseCode, title, semester, days, time, instructor, room, startDate, endDate)
-    values ('courseCode', 'title', 'semester', 'days', 'time', 'instructor', 'room', 'startDate', 'endDate')";
+    values ('$courseCode', '$title', '$semester', '$days', '$time', '$instructor', '$room', '$startDate', '$endDate')";
     $result = $conn->query($sql);
 
 
@@ -16,6 +16,4 @@
 
 mysqli_close( $conn );
 ?>
-    
-
 </html>
