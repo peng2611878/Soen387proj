@@ -10,13 +10,17 @@
 
 <body>
     <?php
-    function display_course($sID){
+    function display_course(){
         include_once 'connection.php';
         extract( $_POST);
+        session_start();
+        $sID = $_SESSION['sID'];
+        echo "$sID";
 
-        $sql = "SELECT * FROM `course` WHERE semester = \"$selectSemester\";";
+        $sql = "SELECT * FROM course WHERE semester = '$selectSemester';";
         if($result = $conn->query($sql)){
             while($row = $result->fetch_assoc()) {
+                $cID = $row["cID"];
                 $courseCode = $row["courseCode"];
                 $title = $row["title"];
                 $semester = $row["semester"];
@@ -39,34 +43,29 @@
                 <td row="cell">{$startDate}</td>
                 <td row="cell">{$endDate}</td>
                <td>
-                    <button type="button" class="btn" onclick ="window.location.href = 'index.php?edit_inperson&id=$sID'">Add</button>
+                    <input type="submit" name="regBtn"
+                            value="$row[cID]" />
                 </td> 
             </tr> 
-            
             DELIMETER;
-          
-            echo $courseList;
-/* 
-                print( "<tr>" );
-                echo  $row["courseCode"]. " " . $row["title"]. " " . $row["semester"].
-                " " . $row["days"]." " . $row["time"]." " . $row["instructor"]." " . $row["room"].
-                " " . $row["startDate"]." " . $row["endDate"].
-                "<br>";
-                print( "<td></td> " );  */
-            }
-        }
-        else {
-            echo "0 results";
-        }
-        
-        //connect to MySQL
-        
 
-          $conn->close();
+            echo $courseList;
+            //echo "$cID";
+            //echo "$sID";
+            echo "$row[cID]";
+                
+            }
+
+            $result->free();
+        }  
     }
+    
+
+
 
     ?>
 
+    <form method="post">
     <table class = "courseTable">
         <tr>
             <th>courseCode</th>
@@ -80,11 +79,11 @@
             <th>endDate</th>
         </tr>
         <?php
-        display_course($sID);
+        display_course();
         ?>
     </table>
+    </form>
     
-
     
 </body>
 

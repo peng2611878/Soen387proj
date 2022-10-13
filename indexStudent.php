@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
     <title>user select courses Page2</title>
     <body>
 
@@ -41,5 +42,9 @@
             <input type = "submit" value = "cheak detail">
         </div>
         </form>
+        <?php
+        session_start();
+        $_SESSION['sID'] = $sID;
+        ?>
     </body>
 </html>
