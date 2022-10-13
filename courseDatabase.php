@@ -7,7 +7,6 @@
 <html>
     <title>show all the courses in semester page4 </title>
 
-
 <body>
     <?php
     function display_course(){
@@ -42,10 +41,10 @@
                 <td row="cell">{$room}</td>
                 <td row="cell">{$startDate}</td>
                 <td row="cell">{$endDate}</td>
-               <td>
-                    <input type="submit" name="regBtn"
-                            value="$row[cID]" />
-                </td> 
+                // <td>
+                //      <input type="submit" name="regBtn"
+                //              value="$row[cID]" />
+                //  </td> 
             </tr> 
             DELIMETER;
 
@@ -57,12 +56,18 @@
             }
 
             $result->free();
-        }  
+        } 
+
+        <form action="courseAddResult.php" method="post">
+        <p>Please input the cID that you want to add</p>
+        <input name="cID" type="int" size=2 />
+        <input type="submit" value="Add">
+        </form>
+
+        
+          
     }
-    
-
-
-
+ 
     ?>
 
     <form method="post">
