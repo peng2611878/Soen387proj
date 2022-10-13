@@ -5,6 +5,7 @@ show registered courses page 3
     <title>student's registration result page 3 </title>
 </html>
 
+
 <body>
     <?php
         extract($_POST);
