@@ -12,10 +12,8 @@
     $result = $conn->query($sql);
 
 
-    print("Book was insterted into the Database correctly");
+    print("Course was insterted into the Database correctly");
 
 mysqli_close( $conn );
 ?>
-    
-
 </html>

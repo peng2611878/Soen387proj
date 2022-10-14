@@ -1,24 +1,89 @@
 <!DOCTYPE html>
 
-<html>
-    <title>show all the courses in semester page4 </title>
+<head>
+<head>
+    <link rel="icon" href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Management System</title>
+    <!--  CSS Stylesheets-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="myCss.scss">
 
+</head>
+</head>
+
+<html>
+    <title>show all the courses in the selected semester page4 </title>
 
 <body>
+<div class="title">
+        <span class="title">Course Management System</span>
+    </div>
     <?php
+    function display_course(){
         include_once 'connection.php';
         extract( $_POST);
+        session_start();
+        $sID = $_SESSION['sID'];
+        echo "$sID";
+        $_SESSION['semester'] = $selectSemester;
+       
 
-        $sql = "SELECT * FROM `course` WHERE semester = \"$selectSemester\";";
-        $result = $conn->query($sql);
-        //connect to MySQL
+        $sql = "SELECT * FROM course WHERE semester = '$selectSemester';";
+        if($result = $conn->query($sql)){
+            while($row = $result->fetch_assoc()) {
+                $cID = $row["cID"];
+                $courseCode = $row["courseCode"];
+                $title = $row["title"];
+                $semester = $row["semester"];
+                $days = $row["days"];
+                $time = $row["time"];
+                $instructor = $row["instructor"];
+                $room = $row["room"];
+                $startDate = $row["startDate"];
+                $endDate = $row["endDate"];
+
+                $courseList = <<<DELIMETER
+                <tr role="row">
+                <td row="cell">{$cID}</td>
+                <td row="cell">{$courseCode}</td>
+                <td row="cell">{$title}</td>
+                <td row="cell">{$semester}</td>
+                <td row="cell">{$days}</td>
+                <td row="cell">{$time}</td>
+                <td row="cell">{$instructor}</td>
+                <td row="cell">{$room}</td>
+                <td row="cell">{$startDate}</td>
+                <td row="cell">{$endDate}</td>
+            </tr> 
+            DELIMETER;
+
+            echo $courseList;
+            echo "$row[cID]";
+                
+            }
+
+            $result->free();
+        } 
+
         
+    }
 
-          $conn->close();
+ 
     ?>
 
-    <table>
+    <form action="courseAddResult.php" method="post">
+    <p>Please input the cID that you want to add</p>
+    <input name="cID" type="int" size=2 />
+    <input type="submit" value="Add">
+    </form>
+
+    <form method="post">
+    <table class = "courseTable">
         <tr>
+            <th>courseID</th>
             <th>courseCode</th>
             <th>title</th>
             <th>semester</th>
@@ -29,23 +94,14 @@
             <th>startDate</th>
             <th>endDate</th>
         </tr>
+        <?php
+        display_course();
+        ?>
     </table>
-    
-    <?php
-        if ($result->num_rows > 0) {
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
-                print( "<tr>" );
-                echo  $row["courseCode"]. " " . $row["title"]. " " . $row["semester"].
-                " " . $row["days"]." " . $row["time"]." " . $row["instructor"]." " . $row["room"].
-                " " . $row["startDate"]." " . $row["endDate"].
-                "<br>";
-                print( "<td></td> " );
-            }
-          } else {
-            echo "0 results";
-          }
-    ?>
+    </form>
+    <div class="footer">
+        Copyright &copy Julie&Yui COMPANY &nbsp; Technical support: (514) 555-1234
+    </div>
     
 </body>
 
