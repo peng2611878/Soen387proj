@@ -14,7 +14,7 @@
         $sID = $_SESSION['sID'];
         //  test: echo "$sID";
         $selectSemester = $_SESSION['semester'];
-        //  test: echo "$selectSemester";
+        // test: echo "$selectSemester";
 
 
         // To fetch the startDate of the input course
@@ -27,7 +27,7 @@
         $query = $db->query($sql);
         $date1 = $query->fetch();
         $query->closeCursor();
-        //  for test: echo $date1[0];
+        //  test: echo $date1[0];
         // create an Object of start date
         $stardDate=date_create("$date1[0]");
 
@@ -35,7 +35,7 @@
         // To fetch the current Date
         date_default_timezone_set("America/New_York");
         $currentDate1 = date("Y-m-d");
-        //  for test: echo $currentDate1;
+        //  test: echo $currentDate1;
         //  create an object of current date
         $currentDate=date_create("$currentDate1");
 
@@ -44,13 +44,11 @@
          $intvl = $stardDate ->diff($currentDate);
     
         // for test the Total amount of days
-        //  echo $intvl->days . " days ";
+        //  test: echo $intvl->format("%r%a");
+        //   echo $intvl->days . " days ";
 
 
-
-
-        // Result1: if the registered course for this semester is >= 5, add can not be executed.
-
+        // Fetch the count of the registered courses of this student in this semester 
         $sql = "SELECT Count(enrolled.cID)
                 FROM enrolled, course
                 WHERE enrolled.sID = $sID AND course.cID = enrolled.cID AND course.semester = '$selectSemester' ";
@@ -62,16 +60,24 @@
         $query = $db->query($sql);
         $countq = $query->fetch();
         $query->closeCursor();
-        //  for test the count of the registered courses of this student in this semester 
+        //  for test the count 
         //  echo $countq[0];
 
-        if($countq[0]>= 5){
+      
+        // if the student has already registered this course in this semester, he/she could not register again
+        $select = mysqli_query($conn, "SELECT * FROM enrolled WHERE cID = '".$_POST['cID']."' AND sID = $sID");
+        if(mysqli_num_rows($select)) {
+        exit('You have already registered this course, can not registered again.');
+        } 
+        // Result1: if the registered course for this semester is >= 5, add can not be executed.
+
+        else if($countq[0]>= 5){
                 echo "Sorry, could not register more courses for semester ". $selectSemester ;        
         }
         
         // Result2: if the registerd course: Date(current time) - startDate >= 7, add can not be executed.
 
-        else if($intvl->days >= 7){
+        else if($intvl->format("%r%a") >= 7){
                 echo "Sorry, You have already passed the start date of this course more than 7 days. Can't register. ";
         }
 

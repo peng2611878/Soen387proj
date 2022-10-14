@@ -39,12 +39,12 @@
                 <option> 2023winter </option>
             </select>
             </h2>
-            <input type = "submit" value = "cheak detail">
+            <input type = "submit" value = "show available courses">
         </div>
         </form>
         <?php
         session_start();
-        
+
         $_SESSION['sID'] = $sID;
         
         ?>
