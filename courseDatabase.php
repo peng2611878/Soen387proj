@@ -5,7 +5,7 @@
 </head>
 
 <html>
-    <title>show all the courses in semester page4 </title>
+    <title>show all the courses in the selected semester page4 </title>
 
 <body>
     <?php
@@ -15,6 +15,8 @@
         session_start();
         $sID = $_SESSION['sID'];
         echo "$sID";
+        $_SESSION['semester'] = $selectSemester;
+       
 
         $sql = "SELECT * FROM course WHERE semester = '$selectSemester';";
         if($result = $conn->query($sql)){
@@ -58,17 +60,17 @@
             $result->free();
         } 
 
-        <form action="courseAddResult.php" method="post">
-        <p>Please input the cID that you want to add</p>
-        <input name="cID" type="int" size=2 />
-        <input type="submit" value="Add">
-        </form>
-
         
-          
     }
+
  
     ?>
+
+    <form action="courseAddResult.php" method="post">
+    <p>Please input the cID that you want to add</p>
+    <input name="cID" type="int" size=2 />
+    <input type="submit" value="Add">
+    </form>
 
     <form method="post">
     <table class = "courseTable">
