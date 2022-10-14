@@ -1,3 +1,2 @@
 # Soen387proj
-1231231412414
-# Trial
+Wuyang Peng 40037681
