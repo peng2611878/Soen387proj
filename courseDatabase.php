@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 
 <head>
-<link rel="stylesheet" href="myCss.css">
+<head>
+    <link rel="icon" href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Management System</title>
+    <!--  CSS Stylesheets-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="myCss.scss">
+
+</head>
 </head>
 
 <html>
     <title>show all the courses in the selected semester page4 </title>
 
 <body>
+<div class="title">
+        <span class="title">Course Management System</span>
+    </div>
     <?php
     function display_course(){
         include_once 'connection.php';
@@ -34,6 +47,7 @@
 
                 $courseList = <<<DELIMETER
                 <tr role="row">
+                <td row="cell">{$cID}</td>
                 <td row="cell">{$courseCode}</td>
                 <td row="cell">{$title}</td>
                 <td row="cell">{$semester}</td>
@@ -43,16 +57,10 @@
                 <td row="cell">{$room}</td>
                 <td row="cell">{$startDate}</td>
                 <td row="cell">{$endDate}</td>
-                // <td>
-                //      <input type="submit" name="regBtn"
-                //              value="$row[cID]" />
-                //  </td> 
             </tr> 
             DELIMETER;
 
             echo $courseList;
-            //echo "$cID";
-            //echo "$sID";
             echo "$row[cID]";
                 
             }
@@ -75,6 +83,7 @@
     <form method="post">
     <table class = "courseTable">
         <tr>
+            <th>courseID</th>
             <th>courseCode</th>
             <th>title</th>
             <th>semester</th>
@@ -90,7 +99,9 @@
         ?>
     </table>
     </form>
-    
+    <div class="footer">
+        Copyright &copy Julie&Yui COMPANY &nbsp; Technical support: (514) 555-1234
+    </div>
     
 </body>
 

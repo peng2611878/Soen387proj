@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html> 
+<head>
+    <link rel="icon" href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Management System</title>
+    <!--  CSS Stylesheets-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="myCss.scss">
+
+</head>
     <title> courseDetail </title>
 
     <body>
-
+    <div class="title">
+        <span class="title">Course Management System</span>
+    </div>
 
         <?php
             extract( $_POST);
@@ -46,6 +59,9 @@
 
         <br />Your search yielded 
         <strong> <?php print( "$counter" ) ?> results.<br /><br /></strong>
-
+        <div class="footer">
+        Copyright &copy Julie&Yui COMPANY &nbsp; Technical support: (514) 555-1234
+    </div>
     </body>
+
 </html>

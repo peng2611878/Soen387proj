@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="icon" href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Management System</title>
+    <!--  CSS Stylesheets-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="myCss.scss">
+
+</head>
 
     <title>user select courses Page2</title>
     <body>
+    <div class="title">
+        <span class="title">Course Management System</span>
+    </div>
 
-        <h1>Welcome <?php 
+        <h4>Welcome <?php 
             include_once 'connection.php';
             extract( $_POST);
 
@@ -26,20 +40,20 @@
 
         <form method post = "post" action = "coursesRegistered.php">
               <div>
-                <h2>Click here to view your registered courses</h2>
-                <input type = "submit" value = "view">
+                <h4>Click here to view your registered courses</h2>
+                <input class="btn btn-outline-primary btn-sm" type = "submit" value = "view">
               </div>
         </form>
 
         <form method = "post" action = "courseDatabase.php">
         <div>    
-            <h2>Select Semester
+            <h4>Select Semester
             <select name = "selectSemester">
                 <option> 2022Fall </option>
                 <option> 2023winter </option>
             </select>
             </h2>
-            <input type = "submit" value = "show available courses">
+            <input class="btn btn-outline-primary btn-sm" type = "submit" value = "show available courses">
         </div>
         </form>
         <?php
@@ -48,5 +62,8 @@
         $_SESSION['sID'] = $sID;
         
         ?>
+    <div class="footer">
+        Copyright &copy Julie&Yui COMPANY &nbsp; Technical support: (514) 555-1234
+    </div>
     </body>
 </html>

@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="myCss.css">
+<head>
+    <link rel="icon" href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Management System</title>
+    <!--  CSS Stylesheets-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="myCss.scss">
+
+</head>
 <title>Drop the course</title>
 </head>
 
 <body>
-
+<div class="title">
+        <span class="title">Course Management System</span>
+    </div>
 <?php
         include_once 'connection.php';
         extract( $_POST);
@@ -60,7 +72,9 @@
     mysqli_close( $conn );
 
 ?>
-    
+        <div class="footer">
+        Copyright &copy Julie&Yui COMPANY &nbsp; Technical support: (514) 555-1234
+    </div>
 
 </body>
 </html>
