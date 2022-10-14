@@ -25,6 +25,8 @@
     function display_course(){
         include_once 'connection.php';
         extract( $_POST);
+
+        //use seesion in order to keep track fo the sID 
         session_start();
         $sID = $_SESSION['sID'];
         echo "$sID";
@@ -99,6 +101,7 @@
         ?>
     </table>
     </form>
+    
     <div class="footer">
         Copyright &copy Julie&Yui COMPANY &nbsp; Technical support: (514) 555-1234
     </div>

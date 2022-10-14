@@ -11,9 +11,6 @@
     function display_registeredCourse1(){
     include_once 'connection.php';
     extract( $_POST);
-    // session_start();
-    // $sID = $_SESSION['sID'];
-    // extract($_POST);
 
     $query = "SELECT * 
               FROM enrolled, course
@@ -46,11 +43,7 @@
             </tr> 
             DELIMETER;
 
-        echo $courseList;
-        //echo "$cID";
-        //echo "$sID";
-        // echo "$row[cID]";
-            
+        echo $courseList; 
         }
 
         $result->free();

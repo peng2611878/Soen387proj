@@ -24,9 +24,6 @@
     function display_registeredStudent(){
     include_once 'connection.php';
     extract( $_POST);
-    // session_start();
-    // $sID = $_SESSION['sID'];
-    // extract($_POST);
 
     $query = "SELECT * 
               FROM enrolled, student 
@@ -56,10 +53,6 @@
             DELIMETER;
 
         echo $studentList;
-        //echo "$cID";
-        //echo "$sID";
-        // echo "$row[cID]";
-            
         }
 
         $result->free();

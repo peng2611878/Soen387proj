@@ -58,10 +58,6 @@ function display_registeredCourse(){
                 <td row="cell">{$room}</td>
                 <td row="cell">{$startDate}</td>
                 <td row="cell">{$endDate}</td>
-                // <td>
-                //      <input type="submit" name="regBtn"
-                //              value="$row[cID]" />
-                //  </td> 
             </tr> 
             DELIMETER;
 

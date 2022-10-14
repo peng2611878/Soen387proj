@@ -1,3 +1,2 @@
-# Soen387proj
-1231231412414
-# Trial
+The project is for fall 2022 soen387 assignment 1. 
+Credit to Fangwei Huang, Yingjie Jia, 

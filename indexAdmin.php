@@ -22,8 +22,8 @@
 
             $sql = "select fName, lName FROM administrator WHERE eID = ". $eID;
             $result = $conn->query($sql);
-            //connect to MySQL
             
+            //connect to MySQL
             if ($result->num_rows > 0) {
                 // output data of each row
                 while($row = $result->fetch_assoc()) {
@@ -43,7 +43,6 @@
               </div>
         </form>
 
-        
         <!--a list of course taken by a certain student -->
         <form method="post" action="studentReport.php" >
         <h4>Please enter student ID</h2>
