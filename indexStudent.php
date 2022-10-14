@@ -44,7 +44,9 @@
         </form>
         <?php
         session_start();
+        
         $_SESSION['sID'] = $sID;
+        
         ?>
     </body>
 </html>
